@@ -1,0 +1,130 @@
+/* Eklenti Penceresini Büyütmek İçin Eklenen Kodlar (Popup maks. 800x600) */
+html, body {
+  width: 800px; /* Maksimum genişlik */
+  height: 600; /* Maksimum yükseklik */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Kaydırmayı önle */
+}
+
+/* Haritayı büyük pencerede ortalamak için CSS güncellemeleri */
+.svg-turkiye-haritasi {
+  /* Orijinal CSS'deki bu bloğu, aşağıdaki yeni kodla değiştirin. */
+  max-width: 800px !important; 
+  margin: 0 auto;
+  text-align: center;
+  height: 100%; /* Bu %100, body'nin 500px yüksekliğine referans verir */
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.svg-turkiye-haritasi svg {
+  width: 95%;
+  height: auto;
+}
+
+#svg-turkiye-haritasi path {
+  cursor: pointer;
+}
+#svg-turkiye-haritasi path:hover {
+  fill: #666;
+}
+#bolge-1 g path{
+  fill:#87cdde
+}
+#bolge-2 g path{
+  fill:#ac93a7
+}
+#bolge-3 g path{
+  fill:#ffb380
+}
+#bolge-4 g path{
+  fill:#cccccc
+}
+#bolge-5 g path{
+  fill:#decd87
+}
+#bolge-6 g path{
+  fill:#de8787
+}
+#bolge-7 g path{
+  fill:#aade87
+}
+
+/* İl isimlerini gösteren SVG <text> elementleri için stiller */
+#svg-turkiye-haritasi text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 8px; /* Harita kalabalıklaşmasın diye küçük bir boyut */
+  font-weight: 500; /* Biraz daha okunaklı olması için */
+  fill: #222; /* Koyu renk yazı */
+  text-anchor: middle; /* Yazıyı yatayda ortalar */
+  dominant-baseline: middle; /* Yazıyı dikeyde ortalar */
+  
+  /* Yazıların tıklanmasını veya path'in hover efektini bozmasını engeller */
+  pointer-events: none; 
+}
+
+/* Çoklu Seçim Özelliği için Ekleme */
+
+/* Seçilen ilin dolgusunu ve konturunu değiştirir */
+#svg-turkiye-haritasi g.selected path {
+  fill: #ff6347 !important; /* Canlı bir kırmızı/turuncu renk */
+  stroke: #333; /* Kalın bir kenarlık */
+  stroke-width: 1px;
+}
+
+/* Seçilen ilin üzerindeki il adının stilini ayarla */
+#svg-turkiye-haritasi g.selected text {
+  fill: #fff; /* Yazı rengini beyaza çevir */
+  font-weight: bold; /* Yazıyı kalın yap */
+}
+
+.il-isimleri {
+  position: absolute;
+  z-index: 2;
+}
+.il-isimleri div {
+  font-family: 'Open Sans';
+  display: inline-block;
+  background: #222;
+  color: #fff;
+  padding: 8px 16px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* İl isimlerini gösteren SVG <text> elementleri için stiller */
+#svg-turkiye-haritasi text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 8px; /* Harita kalabalıklaşmasın diye küçük bir boyut */
+  font-weight: 500; /* Biraz daha okunaklı olması için */
+  fill: #222; /* Koyu renk yazı */
+  text-anchor: middle; /* Yazıyı yatayda ortalar */
+  dominant-baseline: middle; /* Yazıyı dikeyde ortalar */
+  
+  /* Yazıların tıklanmasını veya path'in hover efektini bozmasını engeller */
+  pointer-events: none; 
+}
+
+/* Kullanıcının isteği: Sağ alt köşeye sabit 'Arama' butonu stili */
+#searchButton {
+  position: fixed;
+  bottom: 20px; /* Alttan boşluk */
+  right: 20px; /* Sağdan boşluk */
+  z-index: 1000; /* Diğer elementlerin üzerinde olması için */
+  padding: 8px 15px; /* Küçük buton boyutu */
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #3f51b5; /* Mavi tonu */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+  background-color: #303f9f; /* Koyu mavi hover rengi */
+}

@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "İnteraktif Türkiye Haritası",
+  "version": "1.0",
+  "description": "Büyük ve ortalanmış interaktif SVG Türkiye haritası.",
+  "action": {
+    "default_title": "Türkiye Haritası",
+    "default_popup": "index.html" 
+  },
+  
+  "permissions": [
+    "activeTab" 
+  ],
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"], 
+      "js": ["content.js"]
+    }
+  ]
+}
